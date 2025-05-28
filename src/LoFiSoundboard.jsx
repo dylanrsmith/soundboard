@@ -1,3 +1,11 @@
+// @ Code Written by Smitty
+// @ This code is a React component for a Lo-Fi soundboard that plays various ambient sounds.
+// @ It uses the Howler.js library for audio playback and includes features like volume control and stopping all sounds.
+// @ The component is styled with Tailwind CSS for a modern and responsive design.
+// @ The soundboard includes sounds like rain, fireplace, vinyl crackle, train, jazz loop, birds, wind, etc...
+// @ The code is designed to be user-friendly and visually appealing, with a focus on accessibility and ease of use.
+// @ The soundboard is intended for use in a web application, providing a relaxing and immersive audio experience.
+
 import React, { useState, useEffect } from 'react';
 import { Howl } from 'howler';
 
@@ -9,11 +17,14 @@ const sounds = [
   { name: 'Jazz Loop', emoji: '🎷', url: '/sounds/jazz.mp3' },
   { name: 'Birds', emoji: '🐦‍⬛', url: '/sounds/birds.mp3' },
   { name: 'Wind', emoji: '🌬️', url: '/sounds/wind.mp3' },
+  { name: 'Chimes', emoji: '🔔', url: '/sounds/chimes.mp3' },
+  { name: 'Angel Pad', emoji: '👼', url: '/sounds/angel_pad.mp3' },
 ];
 
 const LoFiSoundboard = () => {
   const [playing, setPlaying] = useState({});
 
+  // Unlock audio context on first user interaction - fix for iOS and some browsers
   useEffect(() => {
     const unlock = () => {
       const silent = new Howl({
@@ -46,6 +57,7 @@ const LoFiSoundboard = () => {
     }
   };
 
+  // Function to stop all sounds
   const stopAll = () => {
     Object.values(playing).forEach((entry) => {
       if (entry?.howl) entry.howl.stop();
@@ -53,25 +65,7 @@ const LoFiSoundboard = () => {
     setPlaying({});
   };
 
-  const playChillCombo = () => {
-    const combo = ['Rain', 'Birds', 'Jazz Loop'];
-    combo.forEach((name) => {
-      const sound = sounds.find((s) => s.name === name);
-      if (!playing[name]) {
-        const howl = new Howl({
-          src: [sound.url],
-          loop: true,
-          volume: 0.5,
-        });
-        howl.play();
-        setPlaying((prev) => ({
-          ...prev,
-          [name]: { howl, volume: 0.5 },
-        }));
-      }
-    });
-  };
-
+  // Function to update volume of a specific sound
   const updateVolume = (soundName, volume) => {
     const entry = playing[soundName];
     if (entry && entry.howl) {
@@ -129,12 +123,6 @@ const LoFiSoundboard = () => {
           className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-white font-semibold shadow-md"
         >
           Stop All Sounds ⛔
-        </button>
-        <button
-          onClick={playChillCombo}
-          className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold shadow-md"
-        >
-          Chill Rain Combo 🌧️🎷
         </button>
       </div>
     </div>
