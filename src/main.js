@@ -4,7 +4,7 @@ import App from './App.jsx';
 import './style.css';
 import javascriptLogo from './javascript.svg';
 import viteLogo from '/vite.svg';
-import { setupCounter } from './counter.js';
+// import { setupCounter } from './counter.js';
 
 ReactDOM.createRoot(document.getElementById('app')).render(
   <React.StrictMode>
@@ -12,4 +12,4 @@ ReactDOM.createRoot(document.getElementById('app')).render(
   </React.StrictMode>
 );
 
-setupCounter(document.querySelector('#counter'))
+// setupCounter(document.querySelector('#counter'))

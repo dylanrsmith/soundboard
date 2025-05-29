@@ -27,6 +27,7 @@ const LoFiSoundboard = () => {
   // Unlock audio context on first user interaction - fix for iOS and some browsers
   useEffect(() => {
     const unlock = () => {
+      console.log('unlocking');
       const silent = new Howl({
         src: ['/sounds/silence.mp3'],
         volume: 0,
