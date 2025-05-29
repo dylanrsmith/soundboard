@@ -10,13 +10,13 @@ import React, { useState, useEffect } from 'react';
 import { Howl } from 'howler';
 
 const sounds = [
-  { name: 'Rain', emoji: '🌧️', url: '/sounds/rain.mp3' },
-  { name: 'Fireplace', emoji: '🔥', url: '/sounds/fire.mp3' },
-  { name: 'Vinyl Crackle', emoji: '📻', url: '/sounds/vinyl.mp3' },
+  { name: 'Rain', emoji: '🌧️', url: '/sounds/rain_eq.mp3' },
+  { name: 'Fireplace', emoji: '🔥', url: '/sounds/fire_trim.mp3' },
+  // { name: 'Vinyl Crackle', emoji: '📻', url: '/sounds/vinyl.mp3' },
   { name: 'Train', emoji: '🚂', url: '/sounds/train.mp3' },
-  { name: 'Jazz Loop', emoji: '🎷', url: '/sounds/jazz.mp3' },
   { name: 'Birds', emoji: '🐦‍⬛', url: '/sounds/birds.mp3' },
-  { name: 'Wind', emoji: '🌬️', url: '/sounds/wind.mp3' },
+  { name: 'Wind', emoji: '🌬️', url: '/sounds/wind_trimmed.mp3' },
+  { name: 'Jazz Loop', emoji: '🎷', url: '/sounds/piano_trimmed.mp3' },
   { name: 'Chimes', emoji: '🔔', url: '/sounds/chimes.mp3' },
   { name: 'Angel Pad', emoji: '👼', url: '/sounds/angel_pad.mp3' },
 ];
