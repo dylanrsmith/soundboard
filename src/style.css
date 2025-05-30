@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Orbitron', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(128, 250, 240, 0.87);
+  animation: colorCycle 8s infinite;
   background-color: #242424;
 
   font-synthesis: none;
@@ -28,6 +31,11 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* background-color: #05043f; */
+  background-image: url('images/nebula.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 h1 {
@@ -67,10 +75,11 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
+  margin: 0.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #000000;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -92,5 +101,42 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+
+/* 1. Define the keyframes */
+@keyframes bgShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 2. Create a helper class to apply the gradient + animation */
+.dynamic-bg {
+  background: linear-gradient(-45deg,
+    #ff6ec4,
+    #7873f5,
+    #4ade80,
+    #facc15
+  );
+  background-size: 400% 400%;
+  animation: bgShift 20s ease infinite;
+  filter: blur(3rem);
+  opacity: 0.6; /* tweak for visibility */
+}
+
+@keyframes colorCycle {
+  0% {
+    color: rgb(128, 250, 240);
+  }
+  33% {
+    color: rgb(250, 128, 240);
+  }
+  66% {
+    color: rgb(240, 250, 128);
+  }
+  100% {
+    color: rgb(128, 250, 240);
   }
 }
