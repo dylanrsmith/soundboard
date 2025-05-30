@@ -32,7 +32,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   /* background-color: #05043f; */
-  background-image: url('images/nebula.gif');
+  background-image: url('/images/nebula.gif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
